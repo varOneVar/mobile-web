@@ -47,6 +47,7 @@
 <script>
 import { usedAccountList } from '@/utils/chore'
 export default {
+  name: 'inputAccount',
   props: {
     mobile: {
       type: String,
@@ -78,11 +79,7 @@ export default {
     $_onPhoneBlur() { // 账号输入框失焦
       this.phoneLatent = false
       const item = this.accountList.find(v => v.mobile === this.mobile)
-      if (this.mobile.length !== 11) {
-        this.phoneError = '手机号必须11位'
-      } else {
-        this.phoneError = ''
-      }
+      this.validate()
       this.$emit('phoneBlur', item)
     },
     $_onItemClick({ mobile }) { // 账号列表点击item
@@ -149,6 +146,15 @@ export default {
     },
     $_calcHeight() { // 计算账号列表高度
       this.phoneListHeight = this.showAccountList.length * 49
+    },
+    validate() {
+      if (this.mobile.length !== 11) {
+        this.phoneError = '手机号必须11位'
+        return false
+      } else {
+        this.phoneError = ''
+        return true
+      }
     },
     close() {
       this.phoneListShow = false

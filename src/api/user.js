@@ -14,3 +14,5 @@ export const POST_APIuserInfoQuery = args => __post(`${prefix}/userInfo/query`, 
 export const POST_APIuserInfoUpdate = args => __post(`${prefix}/userInfo/update`, args) // 修改个人信息
 export const POST_APIbandIDcard = args => __post(`${prefix}/userInfo/idcard`, args) // 绑定身份证
 export const POST_APIbandIDcardCheck = args => __post(`${prefix}/userInfo/idcardCheck`, args) // 身份证信息审核
+
+export const POST_APIsendVerifyCode = args => __post(`${prefix}/code/verify`, args) // 发送验证码

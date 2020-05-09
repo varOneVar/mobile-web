@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
-
 import asyncRoutes from './asyncRoutes'
 
 const constantRoutes = [
@@ -36,26 +35,34 @@ const constantRoutes = [
     hidden: true
   },
   {
-    path: '/changepwd',
-    component: () => import('@/views/Portal/ChangePwd'),
-    meta: {
-      title: '重置密码'
-    },
-    hidden: true
-  },
-  {
-    path: '/noAuth',
-    component: () => import('@/views/Bootstrap/Auth'),
+    path: '/notAuth',
+    component: () => import('@/views/Bootstrap/Err'),
     meta: {
       title: '暂无权限'
     },
     hidden: true
   },
   {
+    path: '/500',
+    component: () => import('@/views/Bootstrap/Err'),
+    meta: {
+      title: '服务器错误'
+    },
+    hidden: true
+  },
+  {
     path: '/404',
-    component: () => import('@/views/Bootstrap/Err/404'),
+    component: () => import('@/views/Bootstrap/Err'),
     meta: {
       title: '页面找不到'
+    },
+    hidden: true
+  },
+  {
+    path: '/changepwd',
+    component: () => import('@/views/Portal/ChangePwd'),
+    meta: {
+      title: '重置密码'
     },
     hidden: true
   }

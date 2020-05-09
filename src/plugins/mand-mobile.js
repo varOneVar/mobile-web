@@ -11,6 +11,7 @@ import {
   TabBar, // 导航栏
   Landscape,
   InputItem,
+  ResultPage,
   Field, FieldItem,
   Dialog, NoticeBar,
   Check, CheckBox, CheckGroup, CheckList,
@@ -27,6 +28,7 @@ const components = [
   Skeleton,
   Swiper, SwiperItem,
   TabBar,
+  ResultPage,
   InputItem,
   Landscape,
   Field, FieldItem,

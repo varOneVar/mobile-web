@@ -1,6 +1,5 @@
-<!--  -->
 <template>
-  <div>502</div>
+  <div>个人信息</div>
 </template>
 
 <script>

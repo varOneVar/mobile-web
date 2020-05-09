@@ -5,6 +5,7 @@ import Layout from '@/layout'
 	icon: 'icon-name'            导航栏需设置
 	activeMenu: 'name'           显示导航栏的页面设置，父级的name
 }*/
+// 导航组件
 export const navBarRoutes = [
   {
     path: '/home',
@@ -47,9 +48,31 @@ export const navBarRoutes = [
         path: 'info',
         component: () => import('@/views/Workbench/User'),
         name: 'user-info',
-        meta: { title: '我的', activeMenu: 'user', roles: ['login'] }
+        meta: { title: '我的', activeMenu: 'user', roles: ['none'] }
       }
     ]
+  }
+]
+
+// 功能组件
+export const functionalPage = [
+  {
+    path: '/userinfo',
+    component: () => import('@/views/Workbench/UserInfo'),
+    name: 'userinfo',
+    meta: { title: '设置', activeMenu: 'user', roles: ['none'] }
+  },
+  {
+    path: '/account',
+    component: () => import('@/views/Workbench/Account'),
+    name: 'account',
+    meta: { title: '账户', activeMenu: 'user', roles: ['none'] }
+  },
+  {
+    path: '/settings',
+    component: () => import('@/views/Workbench/Settings'),
+    name: 'settings',
+    meta: { title: '设置', activeMenu: 'user', roles: ['none'] }
   }
 ]
 const asyncRoutes = [
@@ -63,6 +86,7 @@ const asyncRoutes = [
     }
   },
   ...navBarRoutes,
+  ...functionalPage,
   { path: '*', redirect: '/404', hidden: true }
 ]
 export default asyncRoutes

@@ -1,6 +1,5 @@
-<!--  -->
 <template>
-  <div>无权限访问</div>
+  <div>设置</div>
 </template>
 
 <script>

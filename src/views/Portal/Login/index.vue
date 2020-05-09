@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div class="login" @click="$refs.mobile.close()">
+  <div class="login" @click="$refs.mobile && $refs.mobile.close()">
     <div class="topper text-center">
       <div class="avatar-box" :class="{'avatar-action':isLogin}">
         <svgIcon class-name="avatar" :iconClass="iconClass"  />
@@ -16,7 +16,7 @@
           @accountItemClick="$_onItemClick"
           @phoneBlur="$_onPhoneBlur"
         />
-        <inputPwd name="Password" v-model="form.pwd" :pwd="form.pwd" />
+        <inputPwd ref="pwd" name="Password" v-model="form.pwd" :pwd="form.pwd" />
       </md-field>
       <div class="changepwd flex"> 
         <md-icon name="question" @click="goWhere('/changepwd')"></md-icon>
@@ -63,16 +63,14 @@ export default {
       this.form.mobile = mobile
     },
     goWhere(path) { // 前往其他页面
-      this.$router.push(path)
+      this.$router.replace(path)
     },
     loginIn() { // 登录函数
       const { mobile, pwd } = this.form
-      if (mobile.length !== 11) {
-        return
+      for (const key in this.form) {
+        if (!this.$refs[key].validate()) return
       }
-      if (!validat6to20pwd(pwd)) {
-        return
-      }
+      console.log(mobile, pwd)
     }
   },
   components: { svgIcon, inputPwd, inputAccount }

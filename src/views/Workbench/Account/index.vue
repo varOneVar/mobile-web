@@ -1,13 +1,12 @@
-<!--  -->
 <template>
-  <div>页面找不到</div>
+  <div>账户</div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-
+      
     }
   },
   created() {
