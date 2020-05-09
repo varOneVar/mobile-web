@@ -8,7 +8,6 @@ export const defualtAvatar = [
   ['girl1', 'girl2', 'girl3', 'girl4', 'girl5']
 ]
 
-
 /**
  * 曾经使用过的账号
  * item包含: mobile, nickname, avatar

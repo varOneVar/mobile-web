@@ -3,11 +3,11 @@
   <div class="login" @click="$refs.mobile && $refs.mobile.close()">
     <div class="topper text-center">
       <div class="avatar-box" :class="{'avatar-action':isLogin}">
-        <svgIcon class-name="avatar" :iconClass="iconClass"  />
+        <svgIcon class-name="avatar" :icon-class="iconClass" />
       </div>
       <p class="nickname">{{ nickname || '测试' }}</p>
     </div>
-     <section class="section">
+    <section class="section">
       <md-field>
         <inputAccount
           ref="mobile"
@@ -16,16 +16,16 @@
           @accountItemClick="$_onItemClick"
           @phoneBlur="$_onPhoneBlur"
         />
-        <inputPwd ref="pwd" name="Password" v-model="form.pwd" :pwd="form.pwd" />
+        <inputPwd ref="pwd" v-model="form.pwd" name="Password" :pwd="form.pwd" />
       </md-field>
-      <div class="changepwd flex"> 
-        <md-icon name="question" @click="goWhere('/changepwd')"></md-icon>
+      <div class="changepwd flex">
+        <md-icon name="question" @click="goWhere('/changepwd')" />
         <span class="changepwd-span" @click="goWhere('/changepwd')">忘记密码</span>
       </div>
     </section>
     <footer class="btn-box">
-       <md-button type="primary" @click.native="loginIn" round>登录</md-button>
-       <p class="btn-box-p" @click="goWhere('/register')">尚未注册？前往注册</p>
+      <md-button type="primary" round @click.native="loginIn">登录</md-button>
+      <p class="btn-box-p" @click="goWhere('/register')">尚未注册？前往注册</p>
     </footer>
     <p class="tail">POWER BY Android</p>
   </div>
@@ -35,8 +35,7 @@
 import svgIcon from '@/components/SvgIcon'
 import inputPwd from './module/inputPwd'
 import inputAccount from './module/inputAccount'
-import { mapActions } from 'vuex'
-import { validat6to20pwd } from '@/utils/validate'
+// import { mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -45,7 +44,7 @@ export default {
       isLogin: false, // 登录时候设置true可以使头像出现光圈涟漪效果
       form: { // 表单数据
         mobile: '',
-        pwd: '',
+        pwd: ''
       }
     }
   },
@@ -53,10 +52,10 @@ export default {
     $_onPhoneBlur(item) { // 账号输入框失焦
       if (item) {
         this.iconClass = item.avatar
-        this.nickname =  item.nickname
+        this.nickname = item.nickname
       } else {
         this.iconClass = 'defaultAvatar'
-        this.nickname =  ''
+        this.nickname = ''
       }
     },
     $_onItemClick(mobile) { // 账号列表点击item

@@ -45,7 +45,7 @@ service.interceptors.request.use(
 
 		return config
 	},
-	async(error) => {
+	async (error) => {
 		const online = await isOnline()
 		if (online) {
 			Toast.failed({
@@ -71,7 +71,7 @@ service.interceptors.response.use(
 		store.commit('app/SET_WHOLE_PAGE_LOADING', false)
 		return response
 	},
-	async(error) => {
+	async (error) => {
 		const online = await isOnline()
 		if (online) {
 			let code = ''

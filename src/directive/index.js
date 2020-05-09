@@ -17,7 +17,7 @@ const install = (Vue) => {
   })
 }
 if (window.Vue) {
-  Vue.use(install)
+  window.Vue.use(install)
 }
 
 export default install

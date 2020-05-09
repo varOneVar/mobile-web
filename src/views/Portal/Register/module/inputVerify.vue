@@ -2,24 +2,24 @@
   <div class="img-verify">
     <md-input-item
       v-bind="$attrs"
-      v-on="$listeners"
       :title="title"
       is-highlight
       clearable
       maxlength="4"
       :error="errorInfo"
-      @focus="$_onPwdFocus"
       :is-title-latent="pwdLatent"
+      v-on="$listeners"
+      @focus="$_onPwdFocus"
       @blur="$_onPwdBlur"
     >
-      <canvas ref="verify" class="canvas" slot="right" :width="width" :height="height" @click="handleDraw"></canvas>
+      <canvas ref="verify" slot="right" class="canvas" :width="width" :height="height" @click="handleDraw" />
     </md-input-item>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'inputVerify',
+  name: 'InputVerify',
   props: {
      title: {
       type: String,
@@ -45,10 +45,6 @@ export default {
       pool: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890', // 字符串
       imgCode: ''
     }
-  },
-  mounted() {
-    // 绘制图片验证码
-    this.draw()
   },
   methods: {
     // 点击图片重新绘制
@@ -156,6 +152,10 @@ export default {
         return true
       }
     }
+  },
+  mounted() {
+    // 绘制图片验证码
+    this.draw()
   }
 }
 </script>

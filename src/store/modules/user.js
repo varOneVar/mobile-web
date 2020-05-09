@@ -5,7 +5,6 @@ import { goLoginPortal } from '@/utils/env'
 import { usedAccountList } from '@/utils/chore'
 import { encryptReal } from '@/utils/crypto'
 
-
 const state = {
   token: '',
   userInfo: null,
@@ -60,9 +59,10 @@ const actions = {
       })
       if (code === setting.success_code) {
         commit('CHANGE_TOKEN', data.token)
-        commit('CHANGE_USERNAME', data.username)
+        commit('CHANGE_USERNAME', data.nickname)
         commit('CHANGE_ROLES', data.roles)
         commit('CHANGE_MOBILE', data.mobile)
+        commit('CHANGE_AVATAR', data.avatar)
         commit('CHANGE_USERINFO', data)
         usedAccountList.set({
           mobile: data.mobile,
@@ -88,18 +88,18 @@ const actions = {
   }) {
     try {
       const { data: { code, data, message } } = await POST_APIregister({
-        nickname,
         mobile,
         pwd: encryptReal(pwd),
-        avatar,
         verificationCode
       })
       if (code === setting.success_code) {
         commit('CHANGE_TOKEN', data.token)
-        commit('CHANGE_USERNAME', data.username)
+        commit('CHANGE_USERNAME', data.nickname)
         commit('CHANGE_ROLES', data.roles)
         commit('CHANGE_MOBILE', data.mobile)
+        commit('CHANGE_AVATAR', data.avatar)
         commit('CHANGE_USERINFO', data)
+
         usedAccountList.set({
           mobile: data.mobile,
           avatar: data.avatar,

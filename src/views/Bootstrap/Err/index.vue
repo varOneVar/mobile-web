@@ -3,11 +3,11 @@
   <div class="wrapper flex-center">
     <div class="icing">
       <div class="avatar-box">
-        <svgIcon class-name="err404" :iconClass="$route.path.slice(1).toLowerCase()"  />
+        <svgIcon class-name="err404" :icon-class="$route.path.slice(1).toLowerCase()" />
       </div>
       <p class="text-center tip">{{ content }}</p>
       <footer class="btn-box">
-        <md-button type="primary" size="small" @click.native="$router.replace('/')" round>返回首页</md-button>
+        <md-button type="primary" size="small" round @click.native="$router.replace('/')">返回首页</md-button>
       </footer>
     </div>
   </div>

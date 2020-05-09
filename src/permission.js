@@ -18,7 +18,7 @@ router.beforeEach(async (to, from, next) => {
         confirmText: '前往登录',
         cancelText: '返回首页',
         onCancel: () => next('/redirect'),
-        onConfirm: () => next(`/login?redirect=${to.fullPath}`),
+        onConfirm: () => next(`/login?redirect=${to.fullPath}`)
       })
       return
     }

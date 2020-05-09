@@ -2,20 +2,20 @@
 <template>
   <div class="xxx" @click.stop>
     <md-input-item
-      v-bind="$attrs"
-      v-on="$listeners"
-      name="mobile"
       ref="mobile"
+      v-bind="$attrs"
+      name="mobile"
       type="phone"
       title="手机号码"
       :error="phoneError"
       is-highlight
+      :is-title-latent="phoneLatent"
+      clearable
+      v-on="$listeners"
       @focus="$_onPhoneFocus"
       @blur="$_onPhoneBlur"
       @change="$_onPhoneChange"
-      :is-title-latent="phoneLatent"
-      clearable
-    ></md-input-item>
+    />
     <transition name="fade" mode="out-in" appear>
       <div
         v-if="allOpenPhoneListShow && phoneListShow && showAccountList && showAccountList.length"
@@ -27,12 +27,12 @@
         >
           <div
             v-for="i in showAccountList"
-            class="scroll-view-item"
             :key="i.mobile"
+            class="scroll-view-item"
             @click="$_onItemClick(i)"
           >
-            {{i.mobile}}
-            <md-icon class="scroll-view-item-clear" @click.stop="$_onClearItem(i)" name="close" />
+            {{ i.mobile }}
+            <md-icon class="scroll-view-item-clear" name="close" @click.stop="$_onClearItem(i)" />
           </div>
         </md-scroll-view>
         <div class="phone-list-clear flex flex-sb-center">
@@ -47,7 +47,7 @@
 <script>
 import { usedAccountList } from '@/utils/chore'
 export default {
-  name: 'inputAccount',
+  name: 'InputAccount',
   props: {
     mobile: {
       type: String,
@@ -138,7 +138,7 @@ export default {
           this.phoneListShow = true
         } else {
           this.iconClass = 'defaultAvatar'
-          this.nickname =  ''
+          this.nickname = ''
           this.showAccountList = this.$cloneDeep(this.accountList)
           this.phoneListShow = false
         }

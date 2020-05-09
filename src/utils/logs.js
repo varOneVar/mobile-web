@@ -1,6 +1,6 @@
 import store from '@/store'
 import forage from '@/utils/localforage'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'
 const { logger_app_warn,
   logger_app_error,
   logger_page_warn,

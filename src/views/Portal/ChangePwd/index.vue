@@ -6,16 +6,16 @@
         ref="mobile"
         v-model="form.mobile"
         :mobile="form.mobile"
-        :openAccountList="false"
+        :open-account-list="false"
       />
       <inputVerify ref="verify" v-model="form.verify" :verify="form.verify" />
-      <inputMsgVerify  ref="verifyCode" v-model="form.verifyCode" :verify="form.verifyCode" :disabled="codeDisabled" @sendVerifyCode="sendVerifyCode" />
-      <inputPwd  ref="pwd" title="新密码" name="Password" v-model="form.pwd" :pwd="form.pwd" />
-      <inputPwd  ref="pwdAgain" title="确认密码" name="Password" v-model="form.pwdAgain" :pwd="form.pwdAgain" :check-pwd="form.pwd" />
+      <inputMsgVerify ref="verifyCode" v-model="form.verifyCode" :verify="form.verifyCode" :disabled="codeDisabled" @sendVerifyCode="sendVerifyCode" />
+      <inputPwd ref="pwd" v-model="form.pwd" title="新密码" name="Password" :pwd="form.pwd" />
+      <inputPwd ref="pwdAgain" v-model="form.pwdAgain" title="确认密码" name="Password" :pwd="form.pwdAgain" :check-pwd="form.pwd" />
     </md-field>
     <footer class="btn-box">
-       <md-button type="primary" @click.native="register" round>重置密码</md-button>
-       <p class="btn-box-p" @click="goWhere('/login')">记起密码？前往登录</p>
+      <md-button type="primary" round @click.native="register">重置密码</md-button>
+      <p class="btn-box-p" @click="goWhere('/login')">记起密码？前往登录</p>
     </footer>
     <p class="tail">POWER BY Android</p>
   </div>
@@ -36,7 +36,7 @@ export default {
         pwd: '',
         pwdAgain: '',
         verify: '',
-        verifyCode: '',
+        verifyCode: ''
       },
       verifyIsOk: false
     }

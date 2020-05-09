@@ -2,19 +2,19 @@
 <template>
   <div class="wrapper">
     <div class="field-item top">
-      <md-cell-item title="迪迦" brief="152 **** 3344" @click="$router.push('/userinfo')" addon="个人信息" arrow>
-        <div class="avatar-box" slot="left">
-          <svgIcon class-name="avatar" iconClass="boy1"  />
+      <md-cell-item title="迪迦" brief="152 **** 3344" addon="个人信息" arrow @click="$router.push('/userinfo')">
+        <div slot="left" class="avatar-box">
+          <svgIcon class-name="avatar" icon-class="boy1" />
         </div>
       </md-cell-item>
     </div>
     <div class="field-item top">
-      <md-field-item solid title="账户" @click="$router.push('/account')" arrow  />
+      <md-field-item solid title="账户" arrow @click="$router.push('/account')" />
     </div>
     <md-field class="field-item">
-      <md-field-item solid title="标题区域"  @click="$router.push('/account')" arrow  />
-      <md-field-item solid title="标题区域"  @click="$router.push('/account')" arrow  />
-      <md-field-item solid title="设置"  @click="$router.push('/settings')" arrow  />
+      <md-field-item solid title="标题区域" arrow @click="$router.push('/account')" />
+      <md-field-item solid title="标题区域" arrow @click="$router.push('/account')" />
+      <md-field-item solid title="设置" arrow @click="$router.push('/settings')" />
     </md-field>
   </div>
 </template>

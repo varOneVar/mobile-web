@@ -3,18 +3,18 @@
   <form>
     <md-input-item
       v-bind="$attrs"
-      v-on="$listeners"
       :type="pwdType"
       :title="title"
       is-highlight
       clearable
       maxlength="20"
       :error="errorInfo"
-      @focus="$_onPwdFocus"
       :is-title-latent="pwdLatent"
+      v-on="$listeners"
+      @focus="$_onPwdFocus"
       @blur="$_onPwdBlur"
     >
-      <md-icon v-if="pwdIconShow" :name="pwdIcon" slot="right" @click.native="$_onTogglePwdType"></md-icon>
+      <md-icon v-if="pwdIconShow" slot="right" :name="pwdIcon" @click.native="$_onTogglePwdType" />
     </md-input-item>
   </form>
 </template>
@@ -22,7 +22,7 @@
 <script>
 import { validat6to20pwd } from '@/utils/validate'
 export default {
-  name: 'inputPwd',
+  name: 'InputPwd',
   props: {
     title: {
       type: String,

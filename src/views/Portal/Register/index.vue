@@ -6,15 +6,15 @@
         ref="mobile"
         v-model="form.mobile"
         :mobile="form.mobile"
-        :openAccountList="false"
+        :open-account-list="false"
       />
       <inputVerify ref="verify" v-model="form.verify" :verify="form.verify" />
-      <inputMsgVerify  ref="verifyCode" v-model="form.verifyCode" :verify="form.verifyCode" :disabled="codeDisabled" @sendVerifyCode="sendVerifyCode" />
-      <inputPwd  ref="pwd" name="Password" v-model="form.pwd" :pwd="form.pwd" />
+      <inputMsgVerify ref="verifyCode" v-model="form.verifyCode" :verify="form.verifyCode" :disabled="codeDisabled" @sendVerifyCode="sendVerifyCode" />
+      <inputPwd ref="pwd" v-model="form.pwd" name="Password" :pwd="form.pwd" />
     </md-field>
     <footer class="btn-box">
-       <md-button type="primary" @click.native="register" round>注册账号</md-button>
-       <p class="btn-box-p" @click="goWhere('/login')">已有账号？前往登录</p>
+      <md-button type="primary" round @click.native="register">注册账号</md-button>
+      <p class="btn-box-p" @click="goWhere('/login')">已有账号？前往登录</p>
     </footer>
     <p class="tail">POWER BY Android</p>
   </div>
@@ -34,7 +34,7 @@ export default {
         mobile: '',
         pwd: '',
         verify: '',
-        verifyCode: '',
+        verifyCode: ''
       },
       verifyIsOk: false
     }

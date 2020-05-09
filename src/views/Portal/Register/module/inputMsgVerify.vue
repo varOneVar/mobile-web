@@ -2,24 +2,25 @@
   <div class="img-verify">
     <md-input-item
       v-bind="$attrs"
-      v-on="$listeners"
       :title="title"
       is-highlight
       clearable
       type="digit"
       maxlength="6"
       :error="errorInfo"
-      @focus="$_onPwdFocus"
       :is-title-latent="pwdLatent"
+      v-on="$listeners"
+      @focus="$_onPwdFocus"
       @blur="$_onPwdBlur"
     >
       <md-button
+        slot="right"
         :inactive="disabled || disabled_$"
         type="primary"
         size="small"
-        slot="right"
+        inline
         @click.native="sendVerifyCode"
-        inline>{{ tips }}</md-button>
+      >{{ tips }}</md-button>
     </md-input-item>
   </div>
 </template>
@@ -27,7 +28,7 @@
 <script>
 import { simulateInterval } from '@/utils'
 export default {
-  name: 'inputMsgVerify',
+  name: 'InputMsgVerify',
   props: {
      title: {
       type: String,
@@ -86,7 +87,7 @@ export default {
       }, 1000)
       // this.$emit('sendVerifyCode')
     }
-  },
+  }
 }
 </script>
 <style lang="stylus" scoped>
