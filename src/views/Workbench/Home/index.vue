@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div>{{ NUM }}主页{{ env }}
+  <div>{{ NUM }}Home页{{ env }}
     <p v-permission="['admin']">测试permission</p>
   </div>
 </template>
@@ -14,7 +14,7 @@ data() {
   }
 },
   created() {
-    console.log(123)
+    console.log('this.env', this.env, 123, ' this.NUM', this.NUM)
   }
 }
 </script>
