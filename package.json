@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "qa": "npm run lint && vue-cli-service build --modern --mode qa",
     "build": "npm run lint && vue-cli-service build --modern",
     "lint": "vue-cli-service lint",
     "fix": "eslint --fix ./src",

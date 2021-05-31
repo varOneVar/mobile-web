@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div>主页
+  <div>{{ NUM }}主页{{ env }}
     <p v-permission="['admin']">测试permission</p>
   </div>
 </template>
@@ -9,7 +9,8 @@
 export default {
 data() {
   return {
-
+    env: process.env.NODE_ENV,
+    NUM: process.env.VUE_APP_NUMBER
   }
 },
   created() {
